@@ -250,12 +250,13 @@ public class CommonCrawlDataDumper extends NutchTool implements Tool {
     List<Path> parts = new ArrayList<>();
     RemoteIterator<LocatedFileStatus> files = fs.listFiles(segmentRootPath, true);
     String partPattern = ".*" + File.separator + Content.DIR_NAME
-        + File.separator + "part-[0-9]{5}" + File.separator + "data";
+        + File.separator + "part-r-[0-9]{5}" + File.separator + "data";
     while (files.hasNext()) {
       LocatedFileStatus next = files.next();
       if (next.isFile()) {
+
         Path path = next.getPath();
-        if (path.toString().matches(partPattern)){
+  	    if (path.toString().matches(partPattern)){
           parts.add(path);
         }
       }
