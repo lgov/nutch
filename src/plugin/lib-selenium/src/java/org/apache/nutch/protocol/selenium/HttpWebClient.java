@@ -282,10 +282,11 @@ public class HttpWebClient {
         takeScreenshot(driver, conf);
       }
 
-      String innerHtml = driver.findElement(By.tagName("body"))
+      return driver.getPageSource();
+/*      String innerHtml = driver.findElement(By.tagName("body"))
           .getAttribute("innerHTML");
       return innerHtml;
-
+*/
       // I'm sure this catch statement is a code smell ; borrowing it from
       // lib-htmlunit
     } catch (Exception e) {
